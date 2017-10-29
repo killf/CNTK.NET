@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>9c4d4a6b-b5f0-4b78-a500-53df3c4b926b</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{9C4D4A6B-B5F0-4B78-A500-53DF3C4B926B}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>CNTK</RootNamespace>
     <AssemblyName>CNTK</AssemblyName>
@@ -29,25 +29,53 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System"/>
-    
-    <Reference Include="System.Core"/>
-    <Reference Include="System.Xml.Linq"/>
-    <Reference Include="System.Data.DataSetExtensions"/>
-    
-    
-    <Reference Include="Microsoft.CSharp"/>
-    
-    <Reference Include="System.Data"/>
-    
-    <Reference Include="System.Net.Http"/>
-    
-    <Reference Include="System.Xml"/>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="Demo\CoordinatesDemo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Demo\CoordinatesDemo.Designer.cs">
+      <DependentUpon>CoordinatesDemo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Demo\WebBrowserDemo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Demo\WebBrowserDemo.Designer.cs">
+      <DependentUpon>WebBrowserDemo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CNTK.Controls\CNTK.Controls.csproj">
+      <Project>{b3001324-d5e0-4eb5-bb96-9546a629937f}</Project>
+      <Name>CNTK.Controls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CNTK.Core\CNTK.Core.csproj">
+      <Project>{15943624-7261-4323-9fd7-f63cc440f863}</Project>
+      <Name>CNTK.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CNTK.Image\CNTK.Image.csproj">
+      <Project>{139a125b-fda2-4888-b2d9-d71f40576a8c}</Project>
+      <Name>CNTK.Image</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Demo\CoordinatesDemo.resx">
+      <DependentUpon>CoordinatesDemo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Demo\WebBrowserDemo.resx">
+      <DependentUpon>WebBrowserDemo.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
- </Project>
+</Project>
